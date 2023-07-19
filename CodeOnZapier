@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>Prototype Ferme</title>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+  		crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+  	<script type="text/javascript">
+  		function openwindows(url){
+			// l'adresse de la vidéo est passée en paramètre
+			window.open(url, "","width=600,height=400,scrollbars=0,left=" +((screen.width - 460)/2) + ",top=" + ((screen.height - 150)/2) );
+		}
+
+		$(window).scroll(function() {
+    		if ($(this).scrollTop()>450){
+       			$('#rowMenu').addClass('stickyMenuFerme');        
+     		}
+		    else{
+		      $('#rowMenu').removeClass('stickyMenuFerme');
+		     }
+ });
+
+  	</script>
+	<style>
+
+		html{--scroll-behavior: smooth; scroll-behavior: smooth;}
+		h1, h2, h3, h4, p, span, a{font-family: "Oswald";}
+
+		/* .blocVideo, .photoSimple{max-height: 248px!important;} */
+
+		#rowMenu.stickyMenuFerme{position: fixed; top: 64px; margin: 0 auto; z-index: 1;}
+		.stickyMenuFerme #col1Menu{display: none;}
+		.stickyMenuFerme #col2Menu{margin-left: 0!important;}
+
+		/* BANNER */
+		#contentBanner{display: flex; align-items: flex-end; justify-content: flex-end;}
+		#rowEntete{display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 10% 30px 0;}
+		#rowEntete h1, #rowEntete h2, #rowEntete p{color: #fff; line-height: 1em; font-weight: 500;}
+		#rowEntete h1{text-transform: uppercase;}
+		#rowEntete h1, #rowEntete h2{margin-bottom: 10px;}
+		#rowEntete h1{font-size: 33px; text-shadow:  0em 0.1em 0.1em rgba(0,0,0,0.4);}
+		#rowEntete h2, #rowEntete p{font-size: 22px;}
+		#rowMenu{background-color: #f2f2f2; position: relative;}
+		#rowMenu #col1Menu{position: absolute; left: 40px; bottom: -15px;}
+		#rowMenu #col2Menu{margin-left:  300px; width:  100%; padding: 15px 40px 15px 0;}
+		#rowMenu, #rowMenu ul{display: flex; align-items: center; justify-content: space-between; margin-top: 0; margin-bottom: 0;}
+		#rowMenu ul li{list-style-type: none; height:  100%; display: flex; align-items: center; justify-content: center; padding: 10px;}
+		#rowMenu ul li a{color: #000; font-size: 25px; text-decoration: none; position: relative;}
+		#rowMenu ul li a.itemMenu:hover{border-bottom: 4px solid #40BE83;}		
+		#lastItem a{background-color: #40B483; color: #fff!important; padding: 20px; text-transform:  uppercase;}
+		#lastItem a:hover, .btn-eloi:hover{background-color: #fff; color: #40B483!important;}
+		#localisation{display: flex; align-items: center; justify-content: flex-start;}
+		#localisation #marqueur{margin-right: 8px; width: 24px; height: 24px;}
+
+		/*	1ER BLOC */
+
+			/* 1ere ligne */
+
+		#contentVideo{margin: 65px 0;}
+		.blocVideo{position: relative;}
+		.blocVideo svg{width: 30px; height: 30px;}
+		.blocVideo a{height: 100%; display: flex; align-items: center; justify-content: center; width: 100%; position: absolute; top: 0; left: 0; text-decoration:  none;}
+		.blocVideo h3{font-size: 35px!important; color: #FFFFFF!important; line-height: 1em!important;
+    					text-shadow: 0em 0.1em 0.1em rgba(0,0,0,0.4)!important; height: 152px; width: 300px; margin-left: 10px; text-decoration: none; display: flex; align-items: center;}
+
+    		/* Ligne 2 colonnes */
+
+    	.rowWithCol{display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin: 30px 0;}
+    	.rowWithCol1 > div{margin-bottom: 20px;}
+    	.rowWithCol1 .encart{border: 1px solid #4C4C4C;}
+		.rowWithCol1 .encart h3{color: #333; padding-bottom: 10px; line-height: 1em; font-weight: 500; text-transform:  uppercase; font-size: 24px; margin-top: 0; padding: 10px 10px 0 10px}
+
+		.rowWithCol1 .encart p{font-family: "Oswald",sans-serif; font-size: 14px; line-height: 1.2em; font-weight: 500; color: #666; margin-bottom: 0; padding: 0px 10px 10px 10px}
+		.rowWithCol1 > div, .rowWithCol2 > div{width: 100%;}
+		.rowWithCol1 > div:last-child, .rowWithCol2 > div:last-child{margin-bottom: 0!important;}
+		.petiteVideo h3{color: #FFFFFF!important; line-height: 1em!important;
+    					text-shadow: 0em 0.1em 0.1em rgba(0,0,0,0.4)!important; height: 152px; width: 204px;}
+    	.photoSimple img, .blocVideo > img{width: 100%}
+    	.encartVert, .bandeauVert{background-color: #40BE83; border: 0!important;}
+    	.encartVert p{text-align: center;color: #fff!important; line-height: 1; font-weight: 500!important; font-size: 30px!important; font-family: "Oswald",sans-serif; margin: 0; padding: 10px;}
+
+    		/* Bandeau Vert */
+
+    	.bandeauVert{display: flex; align-items: center; justify-content: center; padding: 20px;}
+    	.bandeauVert div{flex-basis: 32%; max-width: 32%; display: flex; align-items: center; justify-content: flex-start; flex-direction:  column;}
+    	.bandeauVert p, .bandeauVert h4{line-height: 1.2; color:  #fff; font-weight: 500; text-align: center;}
+    	.bandeauVert h4{font-size: 29px; margin-bottom: 0}
+    	.bandeauVert p{margin-bottom: 10px; font-size: 70px; margin-top: 0}
+
+    		/* Ferme Auberge */
+
+		.rowWithCol h2{flex-basis: 100%; margin-bottom: 30px; color: #40BE83; text-align: left; line-height: 1; font-size: 34px; font-weight: 500; text-transform: uppercase;}
+    	.texte-ferme p, .colSidebar p{font-family: 'Oswald',Helvetica,Arial,Lucida,sans-serif; color: #666; line-height: 1.7em; font-weight: 500; text-align: justify; font-size: 16px;}
+    	.texte-ferme p{margin-top: 0;}
+
+    		/* Avantages */
+
+    	.blocGris{padding: 10px; margin-bottom: 20px; background-color: #f4f4f4}
+    	.blocGris h3{color: #545454; font-weight: 500; text-transform: uppercase; font-size: 26px; line-height: 1; text-align: center;}
+    	.blocGris p{margin-bottom: 10px; font-family: "Oswald"; color: #666; font-weight: 500; font-size: 14px; line-height: 1.2; text-align: justify;}
+
+    	/* SIDEBAR */
+
+   		.colSidebar div, #sidebarMobile div{margin-bottom: 30px;}
+    	.colSidebar h3, #sidebarMobile h3{margin-top: 0; color: #40BE83; text-transform: uppercase; margin-bottom: 20px; line-height: 1em; font-size: 30px; font-weight: 500;}
+    	.btn-eloi{color: #FFFFFF!important; background-color: #40b483; color: #fff; text-transform: uppercase; font-size: 16px; padding: 12px; font-weight: 500; text-decoration: none}
+    	.btn-eloi:hover{border: 1px solid #40BE83}
+    	.rowBtn{width:  100%;}
+
+		/* RESPONSIVE */
+
+		@media screen and (max-width: 1023px){
+			#colGeneralContent{width: 100%;}
+			#contentBanner{padding: 100px 15px; align-items: center; justify-content: center;}
+			#rowEntete{background-color: #40BE83; opacity: 0.9; padding: 10px;}
+			#rowEntete *{text-align: center;}
+			#col2Menu li{flex-basis: 25%; padding: 10px 0!important;}			
+			#col2Menu li a{font-size: 15px!important;}
+			.lastItem{display: block; flex-basis: 100%}
+			#contentVideo{display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+			.rowWithCol1 > div, .rowWithCol2 > div{width: inherit;}
+			#col1Menu, .colSidebar{display: none;}
+			#col2Menu{margin-left: 0!important; padding: 5px!important;}
+			.encartVert, .encart{padding: 10px;}
+			.petiteVideo h3, .blocVideo h3{width: 70%; font-size: 25px!important}
+			#sidebarMobile{display: block; margin-top: 30px}
+			.bandeauVert h4{font-size: 18px;}
+			#rowMenu ul{justify-content: center; flex-wrap: wrap; padding-left: 0;}
+			#lastItem{display: block; flex-basis: 100%!important}
+			.flexBox{padding-left: 10px; padding-right: 10px;}
+			#sidebarMobile{text-align: justify}
+			#sidebarMobile{color: #666; line-height: 1.7em; font-weight: 500; font-size: 16px;}
+			.blocGris p{font-size:  16px}
+		}
+
+		@media screen and (min-width: 1024px){
+			.contentPresentation{width: 90%; margin: 0 auto;}
+			#contentBanner{height: 450px; max-height: 450px; margin-top: 64px /* place pour le header */}
+			/* #colGeneralContent{width: 70%; float:  left} */
+			.flexBox{display: flex; justify-content: space-between; align-items: flex-start;}
+			.flexBoxLeft{width: 70%}
+			.petiteVideo h3{font-size: 22px!important}
+			.colSidebar{width: 26%;}
+			.rowWithCol > div{flex-basis: 48%; max-width: 48%; display: flex; align-items: flex-start; flex-direction: column; justify-content: space-between;}
+    		.encartVert, .encart{max-height: 115px; height: 115px}
+    		#dateEncart{max-height: inherit!important; height: inherit!important}
+    		.encartVert{display: flex; align-items: center; justify-content: center;}
+    		.sidebarSecond{margin-top: 60px;}
+    		#rowMenu.stickyMenuFerme{width: 90%;}
+    		#sidebarMobile{display: none;}
+		}
+
+		@media screen and (max-width: 1400px){
+    		.encartVert p{font-size: 24px!important;}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="contentPresentation">
+
+		<!-- BANNER -->
+
+		<div id="contentBanner" style="background-image: url('https://eloi.eu/wp-content/uploads/fermes/Doizieux/PtitePouleRousse.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+			<div id="rowEntete">
+				<h1>GAEC de la poule rousse</h1>
+				<h2>Bovin lait / volailles / transformation / vente directe / ferme auberge</h2>
+				<p id="localisation"><img draggable="false" role="img" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f4cd.svg" alt="marqueur Doizieux" title="Marqueur Doizieux" id="marqueur"> Doizieux (42)</p>
+			</div>
+		</div>
+
+		<!-- MENU -->
+
+		<div id="rowMenu">
+			<div id="col1Menu">
+				<img src="https://eloi.eu/wp-content/uploads/fermes/Doizieux/poule_rousse.png" alt="Logo Ferme" title="Logo Ferme" width="225" height="209" />
+			</div>
+			<div id="col2Menu">
+				<ul>
+					<li><a href="#ferme" title="La ferme" class="itemMenu">La ferme</a></li>
+					<li><a href="#ateliers" title="La ferme" class="itemMenu">Les ateliers</a></li>
+					<li><a href="#associe" title="La ferme" class="itemMenu">Devenir associé</a></li>
+					<li><a href="#plus" title="La ferme" class="itemMenu">Les +</a></li>
+					<li id="lastItem"><a href="#interesse" title="La ferme">ça m'intéresse</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- PREMIER BLOC -->
+
+		<div id="contentVideo">
+			<div id="colGeneralContent">
+
+				<!-- 1er bloc -->
+				<div class ="flexBox">
+					<div class="flexBoxLeft">
+						<div class="rowVideo" id="ferme">
+							<div class="blocVideo" id="VideoFirst">
+								<img src="https://eloi.eu/wp-content/uploads/fermes/Doizieux/PtitePouleRousse.jpg" alt="votre titre" titre="votre titre" />
+								<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=VYLEdnkcTz4','VIDEO','width=600,height=400');">
+									<img src="./images/player.png" width="50" height="50" class="player"/>
+									<h3>Découvrez le GAEC de la poule rousse</h3>
+								</a>
+							</div>
+						</div>
+
+						<div id="sidebarMobile">
+						<div>
+							<h3>Présentation</h3>
+							<p>Le GAEC de la Poule Rousse est situé entre Saint-Étienne et Lyon, offrant un cadre idéal pour développer une activité agricole et de transformation à la ferme. Les cinq associés du GAEC et  leurs salariés se consacrent à diverses activités, allant de la production de volailles, de lapin, de lait, beurre, crème et de fromages à la gestion de quatre magasins de producteurs et d’une ferme auberge, où les clients peuvent déguster des plats savoureux préparés avec les produits de la ferme.</p>
+							<p>Chaque associé possède une expertise spécifique et une grande autonomie dans la prise de décisions quotidiennes. Une équipe de trois salariés et un apprenti très impliqués dans leurs missions vient renforcer le fonctionnement de la structure. L’esprit d’entraide et la collaboration sont au cœur de leur fonctionnement, permettant à chacun de s’épanouir tout en contribuant au succès collectif.</p>
+							<p>Si vous recherchez une opportunité unique de rejoindre une entreprise agricole dynamique, axée sur la durabilité et la production fermière de qualité, le GAEC de la Poule Rousse vous offre cette chance. Vous pourrez laisser libre cours à votre créativité, développer vos idées et participer à une aventure passionnante.</p>
+						</div>
+						<div>
+							<h3>Ce qu'ils recherchent</h3>
+							<p>Le GAEC de la Poule Rousse est à la recherche d’un nouvel associé passionné, voire d’un couple, pour prendre la relève d’Isabelle sur l’atelier ferme-auberge, à partir du 1er janvier 2024, et pourquoi pas aider André sur les activités de transformation fromagère. Si vous êtes enthousiaste à l’idée de participer à une aventure agricole et culinaire unique, vous êtes au bon endroit !</p>
+							<p>Avant tout, ils recherchent quelqu’un de motivé, de joyeux et prêt à travailler en équipe. Le savoir-être compte davantage que le savoir-faire. Le timing et les modalités d’installation pourront être adaptés en fonction de votre projet.</p>
+						</div>
+						<div>
+							<h3>approche<br>Agroécologique</h3>
+							<p>Les associés du GAEC de la Poule Rousse ont mis en place des pratiques agroécologiques qui contribuent à la performance et à la résilience de la structure. Adeptes des principes de l’économie circulaire, ils visent l’autonomie au maximum, tout en ayant recours à des approvisionnements extérieurs lorsqu’ils se justifient d’un point de vue économique ou écologique.</p>
+							<p>Des installations photovoltaïques et la mise en place d’un méthaniseur collectif avec 5 autres fermes contribuent à cette quête d’autonomie en énergie et en intrants. Le projet de méthanisation, initié il y a 9 ans par Jacques, a notamment été pensé pour valoriser les fumiers et les biodéchets urbains.</p>
+							<p>Les associés cherchent également à préserver la vie du sol en limitant le labours, et les vaches laitières pâturent la plus grande partie de l’année.</p>
+						</div>
+						<p style="display: flex; justify-content: center;" class="rowBtn"><a href="#contact" class="btn-eloi">ça m'intéresse</a></p>
+					</div> <!-- Sidebar General -->
+
+						<div class="rowWithCol">
+
+							<!-- col 1 -->
+
+							<div class="rowWithCol1">
+								<div class="encart">
+									<h3>Ateliers disponibles</h3>
+									<p>Associé(s) en charge de la ferme auberge.<br>Stage possible dès à présent pour reprise progressive en 2024.</p>
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="https://eloi.eu/wp-content/uploads/fermes/Doizieux/PtitePouleRousse.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=oF_Pmvtee9o','VIDEO','width=600,height=400');">
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Isabelle, en charge de la ferme auberge</h3>
+									</a>
+								</div>
+								<div class="photoSimple">
+									<img src="https://eloi.eu/wp-content/uploads/fermes/Doizieux/PtitePouleRousse.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+							</div>
+
+							<!-- col 2-->
+							
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="https://eloi.eu/wp-content/uploads/fermes/Doizieux/PtitePouleRousse.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="encartVert">
+									<p>«Plus qu’un restaurant, la ferme auberge est un lien entre rural et urbain»</p>							
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="https://eloi.eu/wp-content/uploads/fermes/Doizieux/PtitePouleRousse.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=rWK97v9Nk_o','VIDEO','width=600,height=400');">
+
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez André, en charge de la fromagerie</h3>
+									</a>
+								</div>
+							</div>
+						</div>	
+
+						<!-- BANDEAU VERT -->
+
+						<div class="bandeauVert">
+							<div>
+								<p class="numero">5</p>
+								<h4 class="titreNumero">associés<br>exploitants</h4>
+							</div>
+							<div>
+								<p class="numero">3</p>
+								<h4 class="titreNumero">salariés et<br> un apprenti</h4>
+							</div>
+							<div>
+								<p class="numero">4</p>
+								<h4 class="titreNumero">magasins de<br> producteurs</h4>
+							</div>
+						</div>
+
+						<!-- 2e BLOC -->
+
+						<div class="rowWithCol">
+
+							<!-- col 1 -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-2.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="encartVert">
+									<p>"Être en GAEC c'est moins de charge mentale et on est ensemble dans le coups durs"</p>						
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/monique.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=4XL5pBWnUKU','VIDEO','width=600,height=400');">
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Monique, en charge de la transformation et de la vente</h3>
+									</a>
+								</div>
+								<div class="photoSimple">
+									<img src="./images/photo-3.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/etienne.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=TDztKjYjfko','VIDEO','width=600,height=400');">
+										<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 485 485">
+											<g>
+												<path d="M413.974,71.026C368.171,25.225,307.274,0,242.5,0S116.829,25.225,71.026,71.026C25.225,116.829,0,177.726,0,242.5 s25.225,125.671,71.026,171.474C116.829,459.775,177.726,485,242.5,485s125.671-25.225,171.474-71.026 C459.775,368.171,485,307.274,485,242.5S459.775,116.829,413.974,71.026z M242.5,455C125.327,455,30,359.673,30,242.5 S125.327,30,242.5,30S455,125.327,455,242.5S359.673,455,242.5,455z"></path>
+												<polygon points="181.062,336.575 343.938,242.5 181.062,148.425"></polygon>
+											</g>
+										</svg>
+										<h3>Rencontrez Etienne, en charge de la transformation et de la vente</h3>
+									</a>
+								</div>
+							</div>
+
+							<!-- col 2-->
+							
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-4.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/jacques.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=rlABocJt1Uo','VIDEO','width=600,height=400');">								
+									<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Jacques, en charge de l'élevage bovin lait</h3>
+									</a>
+								</div>
+								<div class="photoSimple">
+									<img src="./images/map.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="photoSimple">
+									<img src="./images/photo-5.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="photoSimple">
+									<img src="./images/vous-aimeriez-voir-votre-gaec.png" alt="votre titre" title="votre-titre" />
+								</div>
+							</div> <!-- COL2 ROW2 -->
+						</div>
+					</div> <!-- FlexBoxLeft -->
+
+					<div class="colSidebar">
+						<div>
+							<h3>Présentation</h3>
+							<p>Le GAEC de la Poule Rousse est situé entre Saint-Étienne et Lyon, offrant un cadre idéal pour développer une activité agricole et de transformation à la ferme. Les cinq associés du GAEC et  leurs salariés se consacrent à diverses activités, allant de la production de volailles, de lapin, de lait, beurre, crème et de fromages à la gestion de quatre magasins de producteurs et d’une ferme auberge, où les clients peuvent déguster des plats savoureux préparés avec les produits de la ferme.</p>
+							<p>Chaque associé possède une expertise spécifique et une grande autonomie dans la prise de décisions quotidiennes. Une équipe de trois salariés et un apprenti très impliqués dans leurs missions vient renforcer le fonctionnement de la structure. L’esprit d’entraide et la collaboration sont au cœur de leur fonctionnement, permettant à chacun de s’épanouir tout en contribuant au succès collectif.</p>
+							<p>Si vous recherchez une opportunité unique de rejoindre une entreprise agricole dynamique, axée sur la durabilité et la production fermière de qualité, le GAEC de la Poule Rousse vous offre cette chance. Vous pourrez laisser libre cours à votre créativité, développer vos idées et participer à une aventure passionnante.</p>
+						</div>
+						<div>
+							<h3>Ce qu'ils recherchent</h3>
+							<p>Le GAEC de la Poule Rousse est à la recherche d’un nouvel associé passionné, voire d’un couple, pour prendre la relève d’Isabelle sur l’atelier ferme-auberge, à partir du 1er janvier 2024, et pourquoi pas aider André sur les activités de transformation fromagère. Si vous êtes enthousiaste à l’idée de participer à une aventure agricole et culinaire unique, vous êtes au bon endroit !</p>
+							<p>Avant tout, ils recherchent quelqu’un de motivé, de joyeux et prêt à travailler en équipe. Le savoir-être compte davantage que le savoir-faire. Le timing et les modalités d’installation pourront être adaptés en fonction de votre projet.</p>
+						</div>
+						<div>
+							<h3>approche<br>Agroécologique</h3>
+							<p>Les associés du GAEC de la Poule Rousse ont mis en place des pratiques agroécologiques qui contribuent à la performance et à la résilience de la structure. Adeptes des principes de l’économie circulaire, ils visent l’autonomie au maximum, tout en ayant recours à des approvisionnements extérieurs lorsqu’ils se justifient d’un point de vue économique ou écologique.</p>
+							<p>Des installations photovoltaïques et la mise en place d’un méthaniseur collectif avec 5 autres fermes contribuent à cette quête d’autonomie en énergie et en intrants. Le projet de méthanisation, initié il y a 9 ans par Jacques, a notamment été pensé pour valoriser les fumiers et les biodéchets urbains.</p>
+							<p>Les associés cherchent également à préserver la vie du sol en limitant le labours, et les vaches laitières pâturent la plus grande partie de l’année.</p>
+						</div>
+						<p style="display: flex; justify-content: center;" class="rowBtn"><a href="#contact" class="btn-eloi">ça m'intéresse</a></p>
+					</div> <!-- Sidebar General -->
+				</div> <!-- FlexBox -->
+
+				<!-- FERME AUBERGE -->
+				<div class="flexBox">
+					<div class="flexBoxLeft">
+						<div class="rowWithCol">
+
+							<h2 id="ateliers">La ferme auberge</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-ferme-auberge.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="texte-ferme">
+									<p>Isabelle, passionnée par l’agriculture et la gastronomie, se consacre principalement à la ferme auberge de l’exploitation. En tant que cheffe, elle prépare avec amour des plats savoureux à base des produits de la ferme, offrant ainsi une expérience culinaire authentique à ses clients. Isabelle est une personne chaleureuse et accueillante, toujours prête à partager son savoir-faire et à échanger avec les visiteurs. Âgée de 61 ans, son départ à la retraite en janvier 2024 marque la recherche d’un nouvel associé pour poursuivre l’aventure de la Poule Rousse.</p>
+								</div>
+							</div>
+
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-7.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/isabelle.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=oF_Pmvtee9o','VIDEO','width=600,height=400');">	
+									<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Isabelle, en charge de la ferme auberge</h3>
+									</a>
+								</div> <!-- Bloc Video -->
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+
+						<!-- TRANSFORMATION LAITIERE -->
+
+						<div class="rowWithCol">
+
+							<h2>Transformation laitière</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/AndreBis-1.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="texte-ferme">
+									<p>André, 52 ans, s’occupe principalement de la transformation du lait à la ferme, même s’il intervient également sur l’élevage et sur le service à l’auberge.</p>
+									<p>La fromagerie transforme environ 100 000 litres de lait en beurre, crème, yaourts, fromages blancs et autres fromages à pâte pressée. La moitié du lait est transformée en beurre et crème et le reste en fromage et yaourts.  Ces produits sont vendus exclusivement  dans les magasins de producteurs et à l’auberge.</p>
+								</div>
+							</div>
+
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-8.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/andre.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=rWK97v9Nk_o','VIDEO','width=600,height=400');">	
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez André, en charge de la fromagerie</h3>
+									</a>
+								</div> <!-- Bloc Video -->
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+
+						<!-- ENTRETIEN MATERIEL -->
+
+						<div class="rowWithCol">
+
+							<h2>élevage et entretien du matériel</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/PtitePouleRousse-31.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="texte-ferme">
+									<p>Jacques, 59 ans, est le premier à s’être installé sur le GAEC en 1982. Il s’occupe de l’alimentation du bétail, de l’entretien des terres et du matériel. Il est également Président de la CUMA, et à l’initiative d’un projet de méthanisation collective et responsable.</p>
+								</div>
+							</div>
+
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-10.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/jacques-2.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=rlABocJt1Uo','VIDEO','width=600,height=400');">	
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Jacques, en charge de l'élevage bovin lait</h3>
+									</a>
+								</div> <!-- Bloc Video -->
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+
+						<!-- VOLAILLE -->
+
+						<div class="rowWithCol">
+
+							<h2>volaille, transformation et vente directe</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/PtitePouleRousse-20-1.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="texte-ferme">
+									<p>Etienne, qui vient de fêter ses 60 ans, a occupé différents postes au sein de l’exploitation, et est désormais en charge de l’abattage des volailles, de la transformation et de la commercialisation.</p>
+									<p>Il passe la majorité de son temps dans les différents magasins de producteurs, au contact direct des clients du GAEC et des autres producteurs associés. Toute la gamme des produits de la ferme y est commercialisée : volailles, lapins, beurre, lait , yaourts, fromages, plats cuisinés, terrines, conserves …</p>
+								</div>
+							</div>
+
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-9.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/etienne-2.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=TDztKjYjfko','VIDEO','width=600,height=400');">	
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Etienne, en charge de la transformation et de la vente</h3>
+									</a>
+								</div> <!-- Bloc Video -->
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+
+						<!-- TRANSFORMATION COMPTABILITE -->
+
+						<div class="rowWithCol">
+
+							<h2>transformation, comptabilité et vente directe</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/PtitePouleRousse-21.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="texte-ferme">
+									<p>Monique, 59 ans, s’est installée sur l’exploitation en 1998.  Avec son mari Etienne, elle est à l’initiative de la mise en place de l’atelier volailles et de la transformation à la ferme.</p>
+									<p>Elle élabore les recettes et s’occupe de la transformation en plats cuisinés, terrines … ainsi que de la vente directe avec Etienne.<<br>Monique gère également la comptabilité, métier qu’elle a exercé dans sa première vie avant l’agriculture.</p>
+								</div>
+							</div>
+
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/photo-11.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/monique-2.jpg" alt="votre titre" titre="votre titre" />
+									<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=4XL5pBWnUKU','VIDEO','width=600,height=400');">	
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Monique, en charge de la transformation et de la vente</h3>
+									</a>
+								</div> <!-- Bloc Video -->
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+					</div> <!-- FlexBoxLeft -->
+
+					<div class="colSidebar sidebarSecond">
+						<div>
+							<h3>Présentation</h3>
+							<p>Le GAEC de la Poule Rousse est situé entre Saint-Étienne et Lyon, offrant un cadre idéal pour développer une activité agricole et de transformation à la ferme. Les cinq associés du GAEC et  leurs salariés se consacrent à diverses activités, allant de la production de volailles, de lapin, de lait, beurre, crème et de fromages à la gestion de quatre magasins de producteurs et d’une ferme auberge, où les clients peuvent déguster des plats savoureux préparés avec les produits de la ferme.</p>
+							<p>Chaque associé possède une expertise spécifique et une grande autonomie dans la prise de décisions quotidiennes. Une équipe de trois salariés et un apprenti très impliqués dans leurs missions vient renforcer le fonctionnement de la structure. L’esprit d’entraide et la collaboration sont au cœur de leur fonctionnement, permettant à chacun de s’épanouir tout en contribuant au succès collectif.</p>
+							<p>Si vous recherchez une opportunité unique de rejoindre une entreprise agricole dynamique, axée sur la durabilité et la production fermière de qualité, le GAEC de la Poule Rousse vous offre cette chance. Vous pourrez laisser libre cours à votre créativité, développer vos idées et participer à une aventure passionnante.</p>
+						</div>
+						<div>
+							<h3>Ce qu'ils recherchent</h3>
+							<p>Le GAEC de la Poule Rousse est à la recherche d’un nouvel associé passionné, voire d’un couple, pour prendre la relève d’Isabelle sur l’atelier ferme-auberge, à partir du 1er janvier 2024, et pourquoi pas aider André sur les activités de transformation fromagère. Si vous êtes enthousiaste à l’idée de participer à une aventure agricole et culinaire unique, vous êtes au bon endroit !</p>
+							<p>Avant tout, ils recherchent quelqu’un de motivé, de joyeux et prêt à travailler en équipe. Le savoir-être compte davantage que le savoir-faire. Le timing et les modalités d’installation pourront être adaptés en fonction de votre projet.</p>
+						</div>
+						<div>
+							<h3>approche<br>Agroécologique</h3>
+							<p>Les associés du GAEC de la Poule Rousse ont mis en place des pratiques agroécologiques qui contribuent à la performance et à la résilience de la structure. Adeptes des principes de l’économie circulaire, ils visent l’autonomie au maximum, tout en ayant recours à des approvisionnements extérieurs lorsqu’ils se justifient d’un point de vue économique ou écologique.</p>
+							<p>Des installations photovoltaïques et la mise en place d’un méthaniseur collectif avec 5 autres fermes contribuent à cette quête d’autonomie en énergie et en intrants. Le projet de méthanisation, initié il y a 9 ans par Jacques, a notamment été pensé pour valoriser les fumiers et les biodéchets urbains.</p>
+							<p>Les associés cherchent également à préserver la vie du sol en limitant le labours, et les vaches laitières pâturent la plus grande partie de l’année.</p>
+						</div>
+						<p style="display: flex; justify-content: center;" class="rowBtn"><a href="#contact" class="btn-eloi">ça m'intéresse</a></p>
+					</div> <!-- Sidebar General -->
+
+				</div> <!-- FlexBox -->
+				
+				<!-- ATELIER FERME AUBERGE CHERCHE PRENEUR -->
+				
+				<div class="flexBox">
+					<div class="flexBoxLeft">
+						<div class="rowWithCol">
+
+							<h2 id="associe">Atelier ferme-auberge cherche preneur !</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/atelier-ferme-auberge-cherche-preneur.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="encart" id="dateEncart">
+									<h3>Date d'installation</h3>
+									<p>Dès que possible, reprise complète courant 2024</p>
+									<h3>Profil</h3>
+									<p>Couple ou repreneur individuel</p>
+									<h3>Modalité</h3>
+									<p>Stage rémunéré puis association au sein du GAEC</p>
+								</div>
+								<div class="photoSimple">
+									<img src="./images/map-2.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="blocVideo petiteVideo">
+									<img src="./images/video-ferme-repreneur.jpg" alt="votre titre" titre="votre titre" />
+										<a href="#" onclick="openwindows('https://www.youtube.com/watch?v=oF_Pmvtee9o','VIDEO','width=600,height=400');">
+										<img src="./images/player.png" width="50" height="50" class="player"/>
+										<h3>Rencontrez Isabelle, en charge de la ferme auberge</h3>
+									</a>
+								</div> <!-- Bloc Video -->
+							</div>
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="texte-ferme">
+									<p>Nichée au cœur de l’exploitation agricole, la ferme-auberge offre une expérience culinaire unique et authentique. Elle propose aux clients réguliers comme de passage de déguster des plats savoureux, préparés à partir des produits frais de la ferme. Que ce soit les volailles, les fromages, les légumes du jardin ou les desserts faits maison, les convives peuvent découvrir les saveurs authentiques de la campagne dans une ambiance conviviale.</p>
+									<p>La ferme-auberge est bien plus qu’un simple restaurant. Lien précieux entre rural et urbain, c’est un lieu où les clients peuvent découvrir le métier d’agriculteur, échanger avec les associés et s’immerger dans la vie agricole.</p>
+									<p>Membre du réseau “Bienvenue à la ferme”, la ferme auberge est engagée à fournir des produits fermiers à 100% et au moins 50% proviennent de la ferme. Elle accueille une clientèle fidèle, qui apprécie sa cuisine de qualité et son service chaleureux.</p>
+									<p>Actuellement, la ferme auberge est ouverte uniquement le week-end : vendredi midi, samedi midi et soir, dimanche midi. Elle ouvre aussi occasionnellement le midi en semaine pour les groupes et les jours fériés.</p>
+									<p>Elle sert en moyenne sur l’année 100 couverts par semaine. Une offre végétarienne pourrait être mise en place, et une activité événementielle pourrait facilement être relancée. Les associés sont aussi ouverts aux propositions d’évolution des repreneurs.</p>
+								</div>
+								<p style="display: flex; justify-content: center;" class="rowBtn"><a href="#contact" class="btn-eloi">ça m'intéresse</a></p>
+
+								<div class="photoSimple">
+									<img src="./images/photo-12.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="photoSimple">
+									<img src="./images/photo-13.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+								<div class="encartVert">
+									<p>"Au-delà de l’expérience, c’est l’envie de faire qui compte pour nous"</p>						
+								</div>
+								<div class="photoSimple">
+									<img src="./images/photo-14.jpg" alt="votre titre" title="votre-titre" />
+								</div>					
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+					</div><!-- FlexBoxLeft -->
+
+					<div class="colSidebar sidebarSecond">
+						<div>
+							<h3>Présentation</h3>
+							<p>Le GAEC de la Poule Rousse est situé entre Saint-Étienne et Lyon, offrant un cadre idéal pour développer une activité agricole et de transformation à la ferme. Les cinq associés du GAEC et  leurs salariés se consacrent à diverses activités, allant de la production de volailles, de lapin, de lait, beurre, crème et de fromages à la gestion de quatre magasins de producteurs et d’une ferme auberge, où les clients peuvent déguster des plats savoureux préparés avec les produits de la ferme.</p>
+							<p>Chaque associé possède une expertise spécifique et une grande autonomie dans la prise de décisions quotidiennes. Une équipe de trois salariés et un apprenti très impliqués dans leurs missions vient renforcer le fonctionnement de la structure. L’esprit d’entraide et la collaboration sont au cœur de leur fonctionnement, permettant à chacun de s’épanouir tout en contribuant au succès collectif.</p>
+							<p>Si vous recherchez une opportunité unique de rejoindre une entreprise agricole dynamique, axée sur la durabilité et la production fermière de qualité, le GAEC de la Poule Rousse vous offre cette chance. Vous pourrez laisser libre cours à votre créativité, développer vos idées et participer à une aventure passionnante.</p>
+						</div>
+						<div>
+							<h3>Ce qu'ils recherchent</h3>
+							<p>Le GAEC de la Poule Rousse est à la recherche d’un nouvel associé passionné, voire d’un couple, pour prendre la relève d’Isabelle sur l’atelier ferme-auberge, à partir du 1er janvier 2024, et pourquoi pas aider André sur les activités de transformation fromagère. Si vous êtes enthousiaste à l’idée de participer à une aventure agricole et culinaire unique, vous êtes au bon endroit !</p>
+							<p>Avant tout, ils recherchent quelqu’un de motivé, de joyeux et prêt à travailler en équipe. Le savoir-être compte davantage que le savoir-faire. Le timing et les modalités d’installation pourront être adaptés en fonction de votre projet.</p>
+						</div>
+						<div>
+							<h3>approche<br>Agroécologique</h3>
+							<p>Les associés du GAEC de la Poule Rousse ont mis en place des pratiques agroécologiques qui contribuent à la performance et à la résilience de la structure. Adeptes des principes de l’économie circulaire, ils visent l’autonomie au maximum, tout en ayant recours à des approvisionnements extérieurs lorsqu’ils se justifient d’un point de vue économique ou écologique.</p>
+							<p>Des installations photovoltaïques et la mise en place d’un méthaniseur collectif avec 5 autres fermes contribuent à cette quête d’autonomie en énergie et en intrants. Le projet de méthanisation, initié il y a 9 ans par Jacques, a notamment été pensé pour valoriser les fumiers et les biodéchets urbains.</p>
+							<p>Les associés cherchent également à préserver la vie du sol en limitant le labours, et les vaches laitières pâturent la plus grande partie de l’année.</p>
+						</div>
+						<p style="display: flex; justify-content: center;" class="rowBtn"><a href="#contact" class="btn-eloi">ça m'intéresse</a></p>
+					</div> <!-- Sidebar General -->
+				</div><!-- FlexBox -->
+
+				<!-- AVANTAGES-->
+
+				<div class="flexBox">
+					<div class="flexBoxLeft">
+						<div class="rowWithCol">
+
+							<h2 id="plus">Avantages</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="blocGris">
+									<h3>localisation</h3>
+									<p>Entre Lyon et Saint-Etienne, et au coeur du parc naturel régional du Pilat, la ferme est à 10 minutes de Saint-Paul-en-Jarez où se trouvent tous les commerces. L’école est à moins de 3 kilomètres.</p>
+									<p>La feme est à côté d’un bassin de consommation d’un million d’habitants qui permet une activité de vente directe et de ferme-auberge dynamique.</p>
+								</div>
+								<div class="blocGris">
+									<h3>Activités diversifiées et résilientes</h3>
+									<p>Spécialisé dans l’élevage de vaches laitières, volailles et lapins, le GAEC est également engagé dans une démarche de transformation à la ferme, sous forme de produits frais ou en conserve, mais également au sein de la ferme-auberge. L’intégralité de la production est vendue en circuits courts, directement sur place et au sein de quatre magasins de producteurs. Ces activités se sont développées au fil des années, en fonction des envies et projets des différents associés.</p>
+									<p>Diversification et complémentarité des ateliers font du GAEC de la Poule Rousse une exploitation extrêmement résiliente, qui ne connaît pas les crises.</p>
+								</div>
+							</div>
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="blocGris">
+									<h3>équipe soudée et ouverte</h3>
+									<p>L’équipe d’associés partage une passion commune pour son métier et travaille main dans la main pour atteindre ses objectifs. La communication est essentielle entre les membres du GAEC , favorisant la collaboration et l’échange d’idées. Solidaires dans les hauts et les bas, les associés se soutiennent mutuellement dans les décisions importantes. Cette dynamique d’équipe crée un environnement de travail positif et stimulant, où chacun se sent valorisé et écouté.</p>
+									<p>Chaque associé bénéficie d’une grande liberté dans la gestion quotidienne de son domaine d’expertise. Les décisions importantes, impliquant par exemple un certain niveau d’investissement, sont discutées collectivement pour garantir une vision commune. Cependant, le principe fondamental est de faire confiance à l’associé  en charge de l’atelier concerné. Cette approche favorise une prise de décision efficace et rapide, tout en renforçant la confiance mutuelle entre les associés.</p>
+								</div>
+								<div class="blocGris">
+									<h3>ouverture au changement</h3>
+									<p>L’équipe est prête à accueillir chaleureusement les nouveaux membres et est ouverte à de nouvelles idées et perspectives pour continuer à faire grandir le GAEC.</p>
+								</div>
+								<p style="display: flex; justify-content: center;" class="rowBtn"><a href="#contact" class="btn-eloi">ça m'intéresse</a></p>
+
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+
+						<!-- PERSPECTIVES-->
+
+						<div class="rowWithCol">
+
+							<h2>Perspectives d'évolution</h2>
+
+							<!-- 1ERE COL -->
+
+							<div class="rowWithCol1">
+								<div class="photoSimple">
+									<img src="./images/perspective.jpg" alt="votre titre" title="votre-titre" />
+								</div>
+							</div>
+
+							<!-- 2E COL -->
+
+							<div class="rowWithCol1">
+								<div class="texte-ferme">
+									<p>Aujourd’hui, la ferme-auberge est ouverte principalement les week-ends. Mais la demande est là pour une ouverture aussi en semaine, au-delà des groupes accueillis actuellement.</p>
+									<p>À une époque, la ferme-auberge organisait des soirées spectacles. Cette partie événementielle n’a pas été relancée après le covid mais il y a toujours une très forte demande, aussi bien de la part des clients que des artistes qui veulent venir s’y produire. C’est donc une activité qui peut redémarrer très facilement. Une offre végétarienne pourrait également être développée pour répondre aux attentes des clients.</p>
+									<p>Par ailleurs, l’ensemble des associés partira à la retraite dans les 5 à 10 ans à venir. Les repreneurs de l’atelier-ferme auberge auront donc une grande marge de manœuvre pour réinventer la composition et le modèle du GAEC. L’équipe actuelle est ouverte à de nouvelles idées et perspectives pour continuer à faire grandir la structure.</p>
+								</div>						
+							</div> <!-- Bloc RowWithCol1 -->
+						</div> <!-- Bloc RowWithCol -->
+					</div> <!-- FlexBoxLeft -->
+
+					<div class="colSidebar sidebarSecond">
+						<div>
+							<h3>Présentation</h3>
+							<p>Le GAEC de la Poule Rousse est situé entre Saint-Étienne et Lyon, offrant un cadre idéal pour développer une activité agricole et de transformation à la ferme. Les cinq associés du GAEC et  leurs salariés se consacrent à diverses activités, allant de la production de volailles, de lapin, de lait, beurre, crème et de fromages à la gestion de quatre magasins de producteurs et d’une ferme auberge, où les clients peuvent déguster des plats savoureux préparés avec les produits de la ferme.</p>
+							<p>Chaque associé possède une expertise spécifique et une grande autonomie dans la prise de décisions quotidiennes. Une équipe de trois salariés et un apprenti très impliqués dans leurs missions vient renforcer le fonctionnement de la structure. L’esprit d’entraide et la collaboration sont au cœur de leur fonctionnement, permettant à chacun de s’épanouir tout en contribuant au succès collectif.</p>
+							<p>Si vous recherchez une opportunité unique de rejoindre une entreprise agricole dynamique, axée sur la durabilité et la production fermière de qualité, le GAEC de la Poule Rousse vous offre cette chance. Vous pourrez laisser libre cours à votre créativité, développer vos idées et participer à une aventure passionnante.</p>
+						</div>
+						<div>
+							<h3>Ce qu'ils recherchent</h3>
+							<p>Le GAEC de la Poule Rousse est à la recherche d’un nouvel associé passionné, voire d’un couple, pour prendre la relève d’Isabelle sur l’atelier ferme-auberge, à partir du 1er janvier 2024, et pourquoi pas aider André sur les activités de transformation fromagère. Si vous êtes enthousiaste à l’idée de participer à une aventure agricole et culinaire unique, vous êtes au bon endroit !</p>
+							<p>Avant tout, ils recherchent quelqu’un de motivé, de joyeux et prêt à travailler en équipe. Le savoir-être compte davantage que le savoir-faire. Le timing et les modalités d’installation pourront être adaptés en fonction de votre projet.</p>
+						</div>
+						<div>
+							<h3>approche<br>Agroécologique</h3>
+							<p>Les associés du GAEC de la Poule Rousse ont mis en place des pratiques agroécologiques qui contribuent à la performance et à la résilience de la structure. Adeptes des principes de l’économie circulaire, ils visent l’autonomie au maximum, tout en ayant recours à des approvisionnements extérieurs lorsqu’ils se justifient d’un point de vue économique ou écologique.</p>
+							<p>Des installations photovoltaïques et la mise en place d’un méthaniseur collectif avec 5 autres fermes contribuent à cette quête d’autonomie en énergie et en intrants. Le projet de méthanisation, initié il y a 9 ans par Jacques, a notamment été pensé pour valoriser les fumiers et les biodéchets urbains.</p>
+							<p>Les associés cherchent également à préserver la vie du sol en limitant le labours, et les vaches laitières pâturent la plus grande partie de l’année.</p>
+						</div>
+						<p style="display: flex; justify-content: center;" class="rowBtn"><a href="#contact" class="btn-eloi">ça m'intéresse</a></p>
+					</div> <!-- Sidebar General -->
+
+				</div> <!-- flexBox -->
+			</div>	<!-- colGeneralContent -->
+
+		</div> <!-- RowVideo -->
+
+		</div>
+	</body>
+</html>
